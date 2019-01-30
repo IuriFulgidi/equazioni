@@ -17,5 +17,15 @@ namespace EquazioniLibrary
 
             return ris;
         }
+
+        public static bool IsNotDetermined(double a, double b)
+        {
+            bool ris = true;
+
+            if (a != 0 && b != 0)
+                ris = false;
+
+            return ris;
+        }
     }
 }
