@@ -44,18 +44,7 @@ namespace EquazioniLibrary.Test
             double a = 5;
             double b = 5;
             bool asp = false;
-            bool ott = Equazioni.IsNotDetermined(a,b);
-
-            Assert.AreEqual(asp, ott);
-        }
-
-        [TestMethod]
-        public void TestNotDet2()
-        {
-            double a = -5;
-            double b = -5;
-            bool asp = false;
-            bool ott = Equazioni.IsNotDetermined(a,b);
+            bool ott = Equazioni.IsIncosnsisteded(a,b);
 
             Assert.AreEqual(asp, ott);
         }
@@ -66,7 +55,7 @@ namespace EquazioniLibrary.Test
             double a = 0;
             double b = 0;
             bool asp = true;
-            bool ott = Equazioni.IsNotDetermined(a,b);
+            bool ott = Equazioni.IsIncosnsisteded(a,b);
 
             Assert.AreEqual(asp, ott);
         }
@@ -74,10 +63,10 @@ namespace EquazioniLibrary.Test
         [TestMethod]
         public void TestNotDet4()
         {
-            double a = -5;
-            double b = 5;
+            double a = 5;
+            double b = 0;
             bool asp = false;
-            bool ott = Equazioni.IsNotDetermined(a, b);
+            bool ott = Equazioni.IsIncosnsisteded(a, b);
 
             Assert.AreEqual(asp, ott);
         }
@@ -85,12 +74,57 @@ namespace EquazioniLibrary.Test
         [TestMethod]
         public void TestNotDet5()
         {
-            double a = 5;
-            double b = -5;
+            double a = 0;
+            double b = 5;
             bool asp = false;
-            bool ott = Equazioni.IsNotDetermined(a, b);
+            bool ott = Equazioni.IsIncosnsisteded(a, b);
 
             Assert.AreEqual(asp, ott);
         }
+
+        [TestMethod]
+        public void TestImp1()
+        {
+            double a = 7;
+            double b = 7;
+            bool asp = false;
+            bool ott = Equazioni.IsImpossible(a, b);
+
+            Assert.AreEqual(asp, ott);
+        }
+
+        [TestMethod]
+        public void TestImp2()
+        {
+            double a = 0;
+            double b = 0;
+            bool asp = false;
+            bool ott = Equazioni.IsImpossible(a, b);
+
+            Assert.AreEqual(asp, ott);
+        }
+
+        [TestMethod]
+        public void TestImp3()
+        {
+            double a = 7;
+            double b = 0;
+            bool asp = false;
+            bool ott = Equazioni.IsImpossible(a, b);
+
+            Assert.AreEqual(asp, ott);
+        }
+
+        [TestMethod]
+        public void TestImp4()
+        {
+            double a = 0;
+            double b = 7;
+            bool asp = true;
+            bool ott = Equazioni.IsImpossible(a, b);
+
+            Assert.AreEqual(asp, ott);
+        }
+
     }
 }

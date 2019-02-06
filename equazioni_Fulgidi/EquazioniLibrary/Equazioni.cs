@@ -18,12 +18,22 @@ namespace EquazioniLibrary
             return ris;
         }
 
-        public static bool IsNotDetermined(double a, double b)
+        public static bool IsIncosnsisteded(double a, double b)
         {
             bool ris = true;
 
-            if (a != 0 && b != 0)
+            if (a != 0 || b != 0)
                 ris = false;
+
+            return ris;
+        }
+
+        public static bool IsImpossible(double a, double b)
+        {
+            bool ris = false;
+
+            if (a == 0 && b != 0)
+                ris = true;
 
             return ris;
         }
