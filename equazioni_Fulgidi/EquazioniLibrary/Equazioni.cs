@@ -18,7 +18,7 @@ namespace EquazioniLibrary
             return ris;
         }
 
-        public static bool IsIncosnsisteded(double a, double b)
+        public static bool IsNotDeterminated(double a, double b)
         {
             bool ris = true;
 
@@ -37,5 +37,14 @@ namespace EquazioniLibrary
 
             return ris;
         }
+
+        public static bool IsDegree2(double a)
+        {
+            bool ris = true;
+            if (a==0)
+                ris = false;
+            return ris;
+        }
+
     }
 }

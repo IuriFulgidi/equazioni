@@ -44,7 +44,18 @@ namespace EquazioniLibrary.Test
             double a = 5;
             double b = 5;
             bool asp = false;
-            bool ott = Equazioni.IsIncosnsisteded(a,b);
+            bool ott = Equazioni.IsNotDeterminated(a,b);
+
+            Assert.AreEqual(asp, ott);
+        }
+
+        [TestMethod]
+        public void TestNotDet2()
+        {
+            double a = 0;
+            double b = 0;
+            bool asp = true;
+            bool ott = Equazioni.IsNotDeterminated(a,b);
 
             Assert.AreEqual(asp, ott);
         }
@@ -52,10 +63,10 @@ namespace EquazioniLibrary.Test
         [TestMethod]
         public void TestNotDet3()
         {
-            double a = 0;
+            double a = 5;
             double b = 0;
-            bool asp = true;
-            bool ott = Equazioni.IsIncosnsisteded(a,b);
+            bool asp = false;
+            bool ott = Equazioni.IsNotDeterminated(a, b);
 
             Assert.AreEqual(asp, ott);
         }
@@ -63,21 +74,10 @@ namespace EquazioniLibrary.Test
         [TestMethod]
         public void TestNotDet4()
         {
-            double a = 5;
-            double b = 0;
-            bool asp = false;
-            bool ott = Equazioni.IsIncosnsisteded(a, b);
-
-            Assert.AreEqual(asp, ott);
-        }
-
-        [TestMethod]
-        public void TestNotDet5()
-        {
             double a = 0;
             double b = 5;
             bool asp = false;
-            bool ott = Equazioni.IsIncosnsisteded(a, b);
+            bool ott = Equazioni.IsNotDeterminated(a, b);
 
             Assert.AreEqual(asp, ott);
         }
@@ -122,6 +122,28 @@ namespace EquazioniLibrary.Test
             double b = 7;
             bool asp = true;
             bool ott = Equazioni.IsImpossible(a, b);
+
+            Assert.AreEqual(asp, ott);
+        }
+
+        [TestMethod]
+        public void TestDeg2_1()
+        {
+            double a = 9;
+
+            bool asp = true;
+            bool ott = Equazioni.IsDegree2(a);
+
+            Assert.AreEqual(asp, ott);
+        }
+
+        [TestMethod]
+        public void TestDeg2_2()
+        {
+            double a = 0;
+
+            bool asp = false;
+            bool ott = Equazioni.IsDegree2(a);
 
             Assert.AreEqual(asp, ott);
         }
