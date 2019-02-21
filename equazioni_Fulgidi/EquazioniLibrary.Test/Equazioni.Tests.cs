@@ -44,7 +44,7 @@ namespace EquazioniLibrary.Test
             double a = 5;
             double b = 5;
             bool asp = false;
-            bool ott = Equazioni.IsNotDeterminated(a,b);
+            bool ott = Equazioni.IsNotDeterminated(a, b);
 
             Assert.AreEqual(asp, ott);
         }
@@ -55,7 +55,7 @@ namespace EquazioniLibrary.Test
             double a = 0;
             double b = 0;
             bool asp = true;
-            bool ott = Equazioni.IsNotDeterminated(a,b);
+            bool ott = Equazioni.IsNotDeterminated(a, b);
 
             Assert.AreEqual(asp, ott);
         }
@@ -151,11 +151,11 @@ namespace EquazioniLibrary.Test
         [TestMethod]
         public void TestDelta1()
         {
-            double a = 3;
+            double a = 0;
             double b = 4;
             double c = 5;
-            double asp = -44;
-            double ott = Equazioni.Delta(a,b,c);
+            double asp = 16;
+            double ott = Equazioni.Delta(a, b, c);
 
             Assert.AreEqual(asp, ott);
         }
@@ -175,18 +175,6 @@ namespace EquazioniLibrary.Test
         [TestMethod]
         public void TestDelta3()
         {
-            double a = 1;
-            double b = -4;
-            double c = 4;
-            double asp = 0;
-            double ott = Equazioni.Delta(a, b, c);
-
-            Assert.AreEqual(asp, ott);
-        }
-
-        [TestMethod]
-        public void TestDelta4()
-        {
             double a = 5;
             double b = 7;
             double c = 2;
@@ -196,5 +184,72 @@ namespace EquazioniLibrary.Test
             Assert.AreEqual(asp, ott);
         }
 
+        [TestMethod]
+        public void TestEq2_1()
+        {
+            double a = 5;
+            double b = 7;
+            double c = 2;
+            string asp="-0,4 e -1";
+            string ott = Equazioni.EquationDegree2(a, b, c);
+
+            Assert.AreEqual(asp, ott);
+        }
+
+        [TestMethod]
+        public void TestEq2_2()
+        {
+            double a = 1;
+            double b = 5;
+            double c = -14;
+            string asp = "2 e -7";
+            string ott = Equazioni.EquationDegree2(a, b, c);
+
+            Assert.AreEqual(asp, ott);
+        }
+
+        [TestMethod]
+        public void TestEq()
+        {
+            double a = 5;
+            double b = 3;
+            string asp = "-0,6";
+            string ott = Equazioni.EquationDegree1(a, b);
+
+            Assert.AreEqual(asp, ott);
+        }
+
+        [TestMethod]
+        public void TestEq1()
+        {
+            double a = 0;
+            double b = 5;
+            string asp = "Impossibile";
+            string ott = Equazioni.EquationDegree1(a, b);
+
+            Assert.AreEqual(asp, ott);
+        }
+
+        [TestMethod]
+        public void TestEq2()
+        {
+            double a = 0;
+            double b = 0;
+            string asp = "Indeterminato";
+            string ott = Equazioni.EquationDegree1(a, b);
+
+            Assert.AreEqual(asp, ott);
+        }
+
+        [TestMethod]
+        public void TestEq3()
+        {
+            double a = 7;
+            double b = 0;
+            string asp = "0";
+            string ott = Equazioni.EquationDegree1(a, b);
+
+            Assert.AreEqual(asp, ott);
+        }
     }
 }
