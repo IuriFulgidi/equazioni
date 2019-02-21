@@ -10,33 +10,30 @@ namespace EquazioniLibrary
     {
         public static bool IsDetermined(double a)
         {
-            if (a == 0)
-                return false;
-
-            return true;
+            if (a != 0)
+                return true;
+            return false;
         }
 
         public static bool IsNotDeterminated(double a, double b)
         {
-            if (a != 0 || b != 0)
-                return false;
-
-            return true;
+            if (a == 0 && b == 0)
+                return true;
+            return false;
         }
 
         public static bool IsImpossible(double a, double b)
         {
             if (a == 0 && b != 0)
                 return true;
-
             return false;
         }
 
         public static bool IsDegree2(double a)
         {
-            if (a==0)
-                return false;
-            return true;
+            if (a!=0)
+                return true;
+            return false;
         }
 
         public static double Delta(double a, double b, double c)
@@ -50,23 +47,18 @@ namespace EquazioniLibrary
 
             if (Equazioni.IsNotDeterminated(a, b))
                 ris = "Indeterminato";
-
             else if (Equazioni.IsImpossible(a, b))
                 ris = "Impossibile";
-
             else if (Equazioni.Delta(a, b, c) < 0)
                 ris = "Impossibile";
-
             else if (Equazioni.Delta(a, b, c) == 0)
                 ris = Convert.ToString(-b / (2 * a));
-
             else
             {
                 double x = (-b + Math.Sqrt(Equazioni.Delta(a, b, c)))/ (2 * a);
                 double y = (-b - Math.Sqrt(  Equazioni.Delta(a, b, c))) / (2 * a);
                 ris = $"{x.ToString()} e {y.ToString()}";
             }
-
             return ris;
         }
 
