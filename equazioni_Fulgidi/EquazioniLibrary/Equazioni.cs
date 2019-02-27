@@ -44,19 +44,22 @@ namespace EquazioniLibrary
         public static string EquationDegree2(double a, double b, double c)
         {
             string ris = "";
-
-            if (Equazioni.IsNotDeterminated(a, b))
+            if (a == 0 && b == 0 && c == 0)
                 ris = "Indeterminato";
-            else if (Equazioni.IsImpossible(a, b))
-                ris = "Impossibile";
+            else if (a != 0 && b == 0 && c != 0)
+                ris = Convert.ToString(Math.Sqrt(-c / a));
             else if (Equazioni.Delta(a, b, c) < 0)
+                ris = "Impossibile";
+            else if (a == 0 && b == 0 && c != 0)
                 ris = "Impossibile";
             else if (Equazioni.Delta(a, b, c) == 0)
                 ris = Convert.ToString(-b / (2 * a));
+            else if (a == 0 && b != 0 && c != 0)
+                ris = Convert.ToString(-c / b);
             else
             {
-                double x = (-b + Math.Sqrt(Equazioni.Delta(a, b, c)))/ (2 * a);
-                double y = (-b - Math.Sqrt(  Equazioni.Delta(a, b, c))) / (2 * a);
+                double x = (-b + Math.Sqrt(Equazioni.Delta(a, b, c))) / (2 * a);
+                double y = (-b - Math.Sqrt(Equazioni.Delta(a, b, c))) / (2 * a);
                 ris = $"{x.ToString()} e {y.ToString()}";
             }
             return ris;

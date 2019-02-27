@@ -189,17 +189,70 @@ namespace EquazioniLibrary.Test
         }
 
         [TestMethod]
-        public void TestEq()
+        public void TestEq2_3()
+        {
+            double a = 1, b = 4, c = 4;
+            string expected = "-2";
+            string obtained = Equazioni.EquationDegree2(a, b, c);
+
+            Assert.AreEqual(expected, obtained);
+        }
+
+        [TestMethod]
+        public void TestEq2_4()
+        {
+            double a = 0, b = 0, c = 0;
+            string expected = "Indeterminato";
+            string obtained = Equazioni.EquationDegree2(a, b, c);
+
+            Assert.AreEqual(expected, obtained);
+        }
+
+        [TestMethod]
+        public void TestEq2_5()
+        {
+            double a = 0, b = 0, c = 3;
+            string expected = "Impossibile";
+            string obtained = Equazioni.EquationDegree2(a, b, c);
+
+            Assert.AreEqual(expected, obtained);
+        }
+
+        [TestMethod]
+        public void TestEq2_6()
+        {
+            double a = 0, b = 5, c = 3;
+            double r = -c / b;
+            string expected = r.ToString();
+            string obtained = Equazioni.EquationDegree2(a, b, c);
+
+            Assert.AreEqual(expected, obtained);
+        }
+
+        [TestMethod]
+        public void TestEq2_7()
+        {
+            double a = 3, b = 0, c = 4;
+            double r = Math.Sqrt(-c / a);
+            string expected = r.ToString();
+            string obtained = Equazioni.EquationDegree2(a, b, c);
+
+            Assert.AreEqual(expected, obtained);
+        }
+
+        [TestMethod]
+        public void TestEq1_1()
         {
             double a = 5,b=3;
-            string expected = "-0,6";
+            double r = -b / a;
+            string expected = r.ToString();
             string obtained = Equazioni.EquationDegree1(a, b);
 
             Assert.AreEqual(expected, obtained);
         }
 
         [TestMethod]
-        public void TestEq1()
+        public void TestEq1_2()
         {
             double a = 0,b=5;
             string expected = "Impossibile";
@@ -209,7 +262,7 @@ namespace EquazioniLibrary.Test
         }
 
         [TestMethod]
-        public void TestEq2()
+        public void TestEq1_3()
         {
             double a = 0,b=0;
             string expected = "Indeterminato";
@@ -219,7 +272,7 @@ namespace EquazioniLibrary.Test
         }
 
         [TestMethod]
-        public void TestEq3()
+        public void TestEq1_4()
         {
             double a = 7,b=0;
             string expected = "0";
